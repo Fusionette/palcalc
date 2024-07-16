@@ -12,6 +12,10 @@ namespace PalCalc.Solver.PalReference
     {
         private GameSettings gameSettings;
 
+        public int IV_HP { get; }
+        public int IV_Shot { get; }
+        public int IV_Defense { get; }
+
         private BredPalReference(GameSettings gameSettings, Pal pal, IPalReference parent1, IPalReference parent2, List<Trait> traits)
         {
             this.gameSettings = gameSettings;
@@ -37,6 +41,10 @@ namespace PalCalc.Solver.PalReference
                 Parent1 = parent2;
                 Parent2 = parent1;
             }
+
+            IV_HP = int.Max(parent1.IV_HP, parent2.IV_HP);
+            IV_Shot = int.Max(parent1.IV_Shot, parent2.IV_Shot);
+            IV_Defense = int.Max(parent1.IV_Defense, parent2.IV_Defense);
 
             EffectiveTraits = traits;
             EffectiveTraitsHash = traits.SetHash();

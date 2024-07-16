@@ -27,6 +27,19 @@ namespace PalCalc.Solver.PalReference
             Male = male;
             Female = female;
 
+            if (male.IV_HP + male.IV_Shot + male.IV_Defense > female.IV_HP + female.IV_Shot + female.IV_Defense)
+            {
+                IV_HP = male.IV_HP;
+                IV_Shot = male.IV_Shot;
+                IV_Defense = male.IV_Defense;
+            }
+            else
+            {
+                IV_HP = female.IV_HP;
+                IV_Shot = female.IV_Shot;
+                IV_Defense = female.IV_Defense;
+            }
+
             Location = new CompositeRefLocation(male.Location, female.Location);
 
             // effective traits based on which pal has the most irrelevant traits
@@ -57,6 +70,10 @@ namespace PalCalc.Solver.PalReference
         public TimeSpan BreedingEffort { get; } = TimeSpan.Zero;
 
         public TimeSpan SelfBreedingEffort { get; } = TimeSpan.Zero;
+
+        public int IV_HP { get; }
+        public int IV_Shot { get; }
+        public int IV_Defense { get; }
 
         private CompositeOwnedPalReference oppositeWildcardReference;
         public IPalReference WithGuaranteedGender(PalDB db, PalGender gender)

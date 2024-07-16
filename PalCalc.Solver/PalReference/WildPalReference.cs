@@ -51,6 +51,10 @@ namespace PalCalc.Solver.PalReference
 
         public int EffectiveTraitsHash { get; }
 
+        public int IV_HP { get; }
+        public int IV_Shot { get; }
+        public int IV_Defense { get; }
+
         private IPalReference WithGuaranteedGenderImpl(PalDB db, PalGender gender)
         {
             return new WildPalReference(Pal)

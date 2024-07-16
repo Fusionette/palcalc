@@ -41,6 +41,7 @@ namespace PalCalc.UI.ViewModel.GraphSharp
                     break;
             }
 
+            IVs = String.Format("IVs: {0} HP, {1} Attack, {2} Defense", node.PalRef.IV_HP, node.PalRef.IV_Shot, node.PalRef.IV_Defense);
             Gender = node.PalRef.Gender.Label();
             AvgRequiredAttemptsDescription = LocalizationCodes.LC_RESULT_BREEDING_ATTEMPTS.Bind(AvgRequiredAttempts);
         }
@@ -72,6 +73,8 @@ namespace PalCalc.UI.ViewModel.GraphSharp
         public bool NeedsRefresh => Location.NeedsRefresh;
 
         public ILocalizedText Gender { get; }
+
+        public string IVs { get; }
 
         public int AvgRequiredAttempts => (Value.PalRef as BredPalReference)?.AvgRequiredBreedings ?? 0;
         public ILocalizedText AvgRequiredAttemptsDescription { get; }

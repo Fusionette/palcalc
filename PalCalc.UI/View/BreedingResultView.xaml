@@ -29,6 +29,7 @@
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="{Binding Pal.Name.Value}" />
                         <TextBlock Text="{Binding Gender.Value}" FontSize="10" />
+                        <TextBlock Text="{Binding IVs}" FontSize="8" />
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontSize="10" Visibility="{Binding AvgRequiredAttemptsVisibility}">
                                 <Run Text="{Binding AvgRequiredAttemptsDescription.Value, Mode=OneWay}" />

@@ -26,6 +26,10 @@ namespace PalCalc.Solver.PalReference
 
         int NumTotalBreedingSteps { get; }
 
+        public int IV_HP { get; }
+        public int IV_Shot { get; }
+        public int IV_Defense { get; }
+
         string EffectiveTraitsString => EffectiveTraits.TraitsListToString();
 
         IPalRefLocation Location { get; }
